@@ -32,7 +32,7 @@ struct DayView: View, MonthlyCalendarManagerDirectAccess {
     }
 
     private var isDayToday: Bool {
-        calendar.isDateInToday(day)
+        calendar.isDateInToday(day) && isDayWithinWeekMonthAndYear
     }
 
     private var isSelected: Bool {
