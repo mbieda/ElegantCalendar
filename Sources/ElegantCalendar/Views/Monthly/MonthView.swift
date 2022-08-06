@@ -29,7 +29,7 @@ struct MonthView: View, MonthlyCalendarManagerDirectAccess {
                 .padding(.leading, CalendarConstants.Monthly.outerHorizontalPadding)
                 .onTapGesture { self.communicator?.showYearlyView() }
             weeksViewWithDaysOfWeekHeader
-            if selectedDate != nil {
+            if selectedDate != nil && calendarManager.configuration.accessoryViewVisible {
                 calenderAccessoryView
                     .padding(.leading, CalendarConstants.Monthly.outerHorizontalPadding)
                     .id(selectedDate!)

@@ -10,13 +10,22 @@ public struct CalendarConfiguration: Equatable {
     public let startDate: Date
     public let endDate: Date
     public let scrollBackToTodayButtonVisible: Bool
+    public let accessoryViewVisible: Bool
 
-    public init(calendar: Calendar = .current, ascending: Bool = true, startDate: Date, endDate: Date, scrollBackToTodayButtonVisible: Bool = true) {
+    public init(
+        calendar: Calendar = .current,
+        ascending: Bool = true,
+        startDate: Date,
+        endDate: Date,
+        scrollBackToTodayButtonVisible: Bool = true,
+        accessoryViewVisible: Bool = true
+    ) {
         self.calendar = calendar
         self.ascending = ascending
         self.startDate = startDate
         self.endDate = endDate
         self.scrollBackToTodayButtonVisible = scrollBackToTodayButtonVisible
+        self.accessoryViewVisible = accessoryViewVisible
     }
 
     var referenceDate: Date {
