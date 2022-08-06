@@ -6,6 +6,7 @@ public struct YearlyCalendarView: View, YearlyCalendarManagerDirectAccess {
 
     var theme: CalendarTheme = .default
     public var axis: Axis = .vertical
+    var scrollBackToTodayButtonVisible = true
 
     @ObservedObject public var calendarManager: YearlyCalendarManager
 
@@ -26,7 +27,7 @@ public struct YearlyCalendarView: View, YearlyCalendarManagerDirectAccess {
         ZStack(alignment: .topTrailing) {
             yearsList
                 .zIndex(0)
-            if isTodayWithinDateRange && !isCurrentYearSameAsTodayYear {
+            if isTodayWithinDateRange && !isCurrentYearSameAsTodayYear && scrollBackToTodayButtonVisible {
                 scrollBackToTodayButton
                     .padding(.trailing, CalendarConstants.Yearly.outerHorizontalPadding)
                     .offset(y: CalendarConstants.Yearly.topPadding + 10)

@@ -39,6 +39,16 @@ extension MonthlyCalendarView: Buildable {
         calendarManager.allowsHaptics = value
         return self
     }
+    
+    /// Changes visibility of scrollBackToTodayButton of the calendar
+    ///
+    /// - Parameter scrollBackToTodayButtonVisible: theme of various components of the calendar
+    public func scrollBackToTodayVisible(_ visible: Bool) -> Self {
+        defer {
+            calendarManager.listManager.reloadPages()
+        }
+        return mutating(keyPath: \.scrollBackToTodayButtonVisible, value: visible)
+    }
 
 }
 
@@ -58,7 +68,6 @@ extension ElegantCalendarView: Buildable {
         calendarManager.monthlyManager.allowsHaptics = value
         return self
     }
-
 }
 
 extension YearlyCalendarView: Buildable {
@@ -70,4 +79,10 @@ extension YearlyCalendarView: Buildable {
         mutating(keyPath: \.theme, value: theme)
     }
 
+    /// Changes visibility of scrollBackToTodayButton of the calendar
+    ///
+    /// - Parameter scrollBackToTodayButtonVisible: theme of various components of the calendar
+    public func scrollBackToTodayVisible(_ visible: Bool) -> Self {
+        mutating(keyPath: \.scrollBackToTodayButtonVisible, value: visible)
+    }
 }

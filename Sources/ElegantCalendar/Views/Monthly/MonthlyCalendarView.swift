@@ -7,6 +7,7 @@ public struct MonthlyCalendarView: View, MonthlyCalendarManagerDirectAccess {
 
     var theme: CalendarTheme = .default
     public var axis: Axis = .vertical
+    var scrollBackToTodayButtonVisible = true
 
     @ObservedObject public var calendarManager: MonthlyCalendarManager
 
@@ -35,7 +36,7 @@ public struct MonthlyCalendarView: View, MonthlyCalendarManagerDirectAccess {
         return ZStack(alignment: .top) {
             monthsList
 
-            if isTodayWithinDateRange && !isCurrentMonthYearSameAsTodayMonthYear {
+            if isTodayWithinDateRange && !isCurrentMonthYearSameAsTodayMonthYear && scrollBackToTodayButtonVisible {
                 leftAlignedScrollBackToTodayButton
                     .padding(.trailing, CalendarConstants.Monthly.outerHorizontalPadding)
                     .offset(y: CalendarConstants.Monthly.topPadding + 3)
