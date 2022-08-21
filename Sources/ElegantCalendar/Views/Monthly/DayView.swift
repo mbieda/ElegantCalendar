@@ -41,7 +41,19 @@ struct DayView: View, MonthlyCalendarManagerDirectAccess {
     }
     
     private var addOverlay: Bool {
-        canSelectDay ? isSelected : isDayToday
+        if canSelectDay {
+            return isSelected || isDayToday
+        } else {
+            return isDayToday
+        }
+    }
+    
+    private var overlayColor: Color {
+        if isSelected {
+            return Color.primary
+        } else {
+            return theme.primary
+        }
     }
 
     var body: some View {
@@ -52,7 +64,7 @@ struct DayView: View, MonthlyCalendarManagerDirectAccess {
             .background(backgroundColor)
             .clipShape(Circle())
             .opacity(opacity)
-            .overlay(addOverlay ? CircularSelectionView() : nil)
+            .overlay(addOverlay ? CircularSelectionView(color: overlayColor) : nil)
             .onTapGesture(perform: notifyManager)
     }
 
@@ -104,10 +116,12 @@ struct DayView: View, MonthlyCalendarManagerDirectAccess {
 private struct CircularSelectionView: View {
 
     @State private var startBounce = false
+    
+    var color = Color.primary
 
     var body: some View {
         Circle()
-            .stroke(Color.primary, lineWidth: 2)
+            .stroke(color, lineWidth: 2)
             .frame(width: radius, height: radius)
             .opacity(startBounce ? 1 : 0)
             .animation(.interpolatingSpring(stiffness: 150, damping: 10))
