@@ -24,7 +24,7 @@ struct MonthView: View, MonthlyCalendarManagerDirectAccess {
     }
 
     var body: some View {
-        VStack(spacing: 40) {
+        VStack(spacing: 10) {
             monthYearHeader
                 .padding(.leading, CalendarConstants.Monthly.outerHorizontalPadding)
                 .onTapGesture { self.communicator?.showYearlyView() }
@@ -34,7 +34,7 @@ struct MonthView: View, MonthlyCalendarManagerDirectAccess {
                     .padding(.leading, CalendarConstants.Monthly.outerHorizontalPadding)
                     .id(selectedDate!)
             }
-            Spacer()
+            Spacer(minLength: 0)
         }
         .padding(.top, CalendarConstants.Monthly.topPadding)
         .frame(width: CalendarConstants.Monthly.cellWidth, height: CalendarConstants.cellHeight)
