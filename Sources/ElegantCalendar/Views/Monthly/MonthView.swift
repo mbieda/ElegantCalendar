@@ -76,7 +76,9 @@ private extension MonthView {
 
     var weeksViewWithDaysOfWeekHeader: some View {
         VStack(spacing: 32) {
-            daysOfWeekHeader
+            if calendarManager.configuration.daysOfWeekHeaderVisible {
+                daysOfWeekHeader
+            }
             weeksViewStack
         }
     }
