@@ -20,7 +20,7 @@ struct YearView: View, YearlyCalendarManagerDirectAccess {
             monthsStack
             Spacer()
         }
-        .padding(.top, CalendarConstants.Yearly.topPadding)
+        .padding(.top, (calendarManager.configuration.useTopPaddding ? CalendarConstants.Yearly.topPadding: 0))
         .frame(width: CalendarConstants.Yearly.cellWidth, height: CalendarConstants.cellHeight)
     }
 
