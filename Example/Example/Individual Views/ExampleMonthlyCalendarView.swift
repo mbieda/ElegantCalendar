@@ -42,6 +42,10 @@ struct ExampleMonthlyCalendarView: View {
 }
 
 extension ExampleMonthlyCalendarView: MonthlyCalendarDataSource {
+    
+    func calendar(backgroundColorForDate date: Date) -> Color? {
+        nil
+    }
 
     func calendar(backgroundColorOpacityForDate date: Date) -> Double {
         let startOfDay = currentCalendar.startOfDay(for: date)
