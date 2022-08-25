@@ -158,18 +158,7 @@ private struct CalendarAccessoryView: View, MonthlyCalendarManagerDirectAccess {
     }
 
     private var dayOfWeekWithMonthAndDayText: some View {
-        let monthDayText: String
-        if numberOfDaysFromTodayToSelectedDate == -1 {
-            monthDayText = "Yesterday"
-        } else if numberOfDaysFromTodayToSelectedDate == 0 {
-            monthDayText = "Today"
-        } else if numberOfDaysFromTodayToSelectedDate == 1 {
-            monthDayText = "Tomorrow"
-        } else {
-            monthDayText = selectedDate!.dayOfWeekWithMonthAndDay
-        }
-
-        return Text(monthDayText.uppercased())
+        Text(selectedDate!.fullDate)
             .font(.subheadline)
             .bold()
     }

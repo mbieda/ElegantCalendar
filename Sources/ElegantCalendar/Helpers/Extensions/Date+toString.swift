@@ -23,6 +23,10 @@ extension Date {
     var year: String {
         DateFormatter.year.string(from: self)
     }
+    
+    var fullDate: String {
+        DateFormatter.fullDate.string(from: self)
+    }
 
 }
 
@@ -55,6 +59,15 @@ extension DateFormatter {
     static var year: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy"
+        return formatter
+    }
+    
+    static var fullDate: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        formatter.timeStyle = .none
+        formatter.doesRelativeDateFormatting = true
+        formatter.locale = Locale.current
         return formatter
     }
 
