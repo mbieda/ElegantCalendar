@@ -49,6 +49,10 @@ struct ExampleCalendarView: View {
 
 extension ExampleCalendarView: ElegantCalendarDataSource {
     
+    func calendar(textColorForDate date: Date) -> Color? {
+        nil
+    }
+    
     func calendar(backgroundColorForDate date: Date) -> Color? {
         nil
     }

@@ -6,6 +6,7 @@ public protocol ElegantCalendarDataSource: MonthlyCalendarDataSource, YearlyCale
 
 public protocol MonthlyCalendarDataSource {
 
+    func calendar(textColorForDate date: Date) -> Color?
     func calendar(backgroundColorForDate date: Date) -> Color?
     func calendar(backgroundColorOpacityForDate date: Date) -> Double
     func calendar(canSelectDate date: Date) -> Bool
@@ -15,6 +16,8 @@ public protocol MonthlyCalendarDataSource {
 
 
 public extension MonthlyCalendarDataSource {
+    
+    func calendar(textColorForDate date: Date) -> Color? { nil }
     
     func calendar(backgroundColorForDate date: Date) -> Color? { nil }
 

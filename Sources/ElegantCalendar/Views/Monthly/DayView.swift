@@ -73,6 +73,9 @@ struct DayView: View, MonthlyCalendarManagerDirectAccess {
     }
 
     private var foregroundColor: Color {
+        if let color = datasource?.calendar(textColorForDate: day) {
+            return color
+        }
         if isDayToday && canSelectDay {
             return theme.todayTextColor
         } else {

@@ -43,6 +43,10 @@ struct ExampleMonthlyCalendarView: View {
 
 extension ExampleMonthlyCalendarView: MonthlyCalendarDataSource {
     
+    func calendar(textColorForDate date: Date) -> Color? {
+        nil
+    }
+    
     func calendar(backgroundColorForDate date: Date) -> Color? {
         nil
     }
